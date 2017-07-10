@@ -31,23 +31,12 @@ BEGIN_MESSAGE_MAP(CMFCkxlOpenCVView, CView)
 	ON_COMMAND(ID_IMAGE_LSER, OnImageLser)
 	ON_COMMAND(ID_FILE_UNDO, OnFileUndo)
 	ON_COMMAND(ID_FILE_RELOAD, OnFileReload)
-	ON_COMMAND(ID_INFO_HISTOGRAM, OnInfoHistogram)
-	ON_COMMAND(ID_INFO_DFT, OnInfoDft)
-	ON_COMMAND(ID_ADD_LAPLACE, OnAddLaplace)
-	ON_COMMAND(ID_CUT_SOBEL, OnCutSobel)
-	ON_COMMAND(ID_CUT_GAUSSIA, OnCutGaussia)
+
 	ON_COMMAND(ID_FindBrightPoint, OnFindBrightPoint)//自定义函数
 	ON_COMMAND(ID_CUT_COUNT, OnCutCount)
-	ON_COMMAND(ID_CUT_CANDY, OnCutCandy)
-	ON_COMMAND(ID_ADD_HISTOGRAM, OnAddHistogram)
-	ON_COMMAND(ID_ADD_GAUSS, OnAddGauss)
-	ON_COMMAND(ID_RESUME_GAUSSNOISE, OnResumeGaussnoise)
-	ON_COMMAND(ID_RESUME_MID, OnResumeMid)
-	ON_COMMAND(ID_RESUME_SOLTNOISE, OnResumeSoltnoise)
 	ON_COMMAND(ID_INFO_GRAY, OnInfoGray)
-	ON_COMMAND(ID_ADD_HOUGH, OnAddHough)
 	ON_COMMAND(ID_FILE_SAVE_AS, OnFileSaveAs)
-	ON_COMMAND(ID_FACE, OnFace)
+
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
@@ -282,64 +271,8 @@ void CMFCkxlOpenCVView::OnFileReload()
 	Invalidate();
 }
 
-					//----------------均直方图化--------------------//
-void CMFCkxlOpenCVView::OnInfoHistogram() 
-{
-	// TODO: Add your command handler code here
-		GetDocument()->Histogram();
-}
 
-					//----------------傅里叶变换--------------------//
-void CMFCkxlOpenCVView::OnInfoDft() 
-{
-	// TODO: Add your command handler code here
-	pImage = GetDocument()->m_pImage;
-	if(pImage != NULL)
-	{
-		GetDocument()->InfoDft();
-		Invalidate();
-	}
-	else MessageBox("没有图片，请先载入图片!") ;
-}
 
-					//----------------Laplace锐化--------------------//
-void CMFCkxlOpenCVView::OnAddLaplace() 
-{
-	// TODO: Add your command handler code here
-	pImage = GetDocument()->m_pImage;
-	if(pImage != NULL)
-	{
-		GetDocument()->LaplaceAdd(3);
-		Invalidate();
-	}
-	else MessageBox("没有图片，请先载入图片!") ;
-}
-
-					//----------------Sobel算子边缘检测--------------------//
-void CMFCkxlOpenCVView::OnCutSobel() 
-{
-	// TODO: Add your command handler code here
-	pImage = GetDocument()->m_pImage;
-	if(pImage != NULL)
-	{
-		GetDocument()->SobelCut(1, 1, 7);
-		Invalidate();
-	}
-	else MessageBox("没有图片，请先载入图片!") ;
-}
-
-					//----------------Gaussia算子边缘检测--------------------//
-void CMFCkxlOpenCVView::OnCutGaussia() 
-{
-
-	pImage = GetDocument()->m_pImage;
-	if(pImage != NULL)
-	{
-		GetDocument()->GaussiaCut(3);
-		Invalidate();
-	}
-	else MessageBox("没有图片，请先载入图片!") ;
-}
 
 					//----------------阈值分割--------------------//
 void CMFCkxlOpenCVView::OnCutCount() 
@@ -354,96 +287,7 @@ void CMFCkxlOpenCVView::OnCutCount()
 	else MessageBox("没有图片，请先载入图片!") ;
 }
 
-					//----------------Candy算子边缘检测--------------------//
-void CMFCkxlOpenCVView::OnCutCandy() 
-{
-	// TODO: Add your command handler code here
-	pImage = GetDocument()->m_pImage;
-	if(pImage != NULL)
-	{
-		GetDocument()->CandyCut();
-		Invalidate();
-	}
-	else MessageBox("没有图片，请先载入图片!") ;
-}
 
-					//----------------霍夫变换--------------------//
-/*void CMFCkxlOpenCVView::OnAddHough() 
-{
-	// TODO: Add your command handler code here
-	pImage = GetDocument()->m_pImage;
-	if(pImage != NULL)
-	{
-		GetDocument()->HoughChange();
-		Invalidate();
-	}
-	else MessageBox("没有图片，请先载入图片!") ;
-}*/
-
-					//----------------直方图均衡化--------------------//
-void CMFCkxlOpenCVView::OnAddHistogram() 
-{
-	// TODO: Add your command handler code here
-	pImage = GetDocument()->m_pImage;
-	if(pImage != NULL)
-	{
-		GetDocument()->HistogramAve();
-		Invalidate();
-	}
-	else MessageBox("没有图片，请先载入图片!") ;	
-}
-
-					//----------------高斯低通滤波--------------------//
-void CMFCkxlOpenCVView::OnAddGauss() 
-{
-	// TODO: Add your command handler code here
-	pImage = GetDocument()->m_pImage;
-	if(pImage != NULL)
-	{
-		GetDocument()->GaussLow();
-		Invalidate();
-	}
-	else MessageBox("没有图片，请先载入图片!") ;
-}
-
-					//----------------高斯噪声--------------------//
-void CMFCkxlOpenCVView::OnResumeGaussnoise() 
-{
-	// TODO: Add your command handler code here
-	pImage = GetDocument()->m_pImage;
-	if(pImage != NULL)
-	{
-		GetDocument()->Gaussnoise();
-		Invalidate();
-	}
-	else MessageBox("没有图片，请先载入图片!") ;
-}
-
-					//----------------中值滤波--------------------//
-void CMFCkxlOpenCVView::OnResumeMid() 
-{
-	// TODO: Add your command handler code here
-	pImage = GetDocument()->m_pImage;
-	if(pImage != NULL)
-	{
-		GetDocument()->Midd();
-		Invalidate();
-	}
-	else MessageBox("没有图片，请先载入图片!") ;
-}
-
-					//----------------椒盐噪声--------------------//
-void CMFCkxlOpenCVView::OnResumeSoltnoise() 
-{
-	// TODO: Add your command handler code here
-	pImage = GetDocument()->m_pImage;
-	if(pImage != NULL)
-	{
-		GetDocument()->Soltnosie();
-		Invalidate();
-	}
-	else MessageBox("没有图片，请先载入图片!") ;
-}
 					//----------------灰度化--------------------//
 void CMFCkxlOpenCVView::OnInfoGray() 
 {
@@ -458,19 +302,6 @@ void CMFCkxlOpenCVView::OnInfoGray()
 }
 
 
-
-void CMFCkxlOpenCVView::OnAddHough() 
-{
-	// TODO: Add your command handler code here
-	pImage=GetDocument()->m_pImage;
-	if (pImage!=NULL)
-	{
-		GetDocument()->AddHough();
-		Invalidate();
-	}
-	else MessageBox("没有图片，请先载入图片!") ;
-}
-
 void CMFCkxlOpenCVView::OnFileSaveAs() 
 {
 	// TODO: Add your command handler code here
@@ -481,19 +312,6 @@ void CMFCkxlOpenCVView::OnFileSaveAs()
 		path = save.GetPathName();
 		GetDocument()->SaveImage(path);	
 	}
-}
-
-void CMFCkxlOpenCVView::OnFace() 
-{
-	// TODO: Add your command handler code here
-
-	pImage=GetDocument()->m_pImage;
-	if (pImage!=NULL)
-	{
-		GetDocument()->facedetect();
-		Invalidate();
-	}
-	else MessageBox("没有图片，请先载入图片!") ;
 }
 
 

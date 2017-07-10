@@ -40,22 +40,16 @@ public:
 
 // Implementation
 public:
-	bool facedetect();
 	CString image_s;
 	bool SaveImage(CString path);
-	bool GaussiaCut(int me);
-	bool SobelCut( int i1, int i2, int i3);
 	bool LaplaceAdd(int me);
 	bool CountCut();
 	bool CandyCut();
 	bool AddHough();
 	bool HistogramAve();
 	bool GaussLow();
-	bool Gaussnoise();
 	bool Midd();
-	bool Soltnosie();
 	bool InfoDft();
-	bool Histogram();
 	bool Gray();
 	bool Reload();
 	IplImage* m_pImageFirst;
