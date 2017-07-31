@@ -142,6 +142,7 @@
     <ClCompile Include="MFCkxlOpenCVDoc.cpp" />
     <ClCompile Include="MFCkxlOpenCVView.cpp" />
     <ClCompile Include="OpenCVkxlEx.cpp" />
+    <ClCompile Include="PointDialog.cpp" />
     <ClCompile Include="StdAfx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdafx.h</PrecompiledHeaderFile>
@@ -161,6 +162,7 @@
     <ClInclude Include="MFCkxlOpenCVDoc.h" />
     <ClInclude Include="MFCkxlOpenCVView.h" />
     <ClInclude Include="OpenCVkxlEx.h" />
+    <ClInclude Include="PointDialog.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="StdAfx.h" />
   </ItemGroup>

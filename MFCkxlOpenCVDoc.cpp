@@ -3,7 +3,7 @@
 
 #include "stdafx.h"
 #include "MFCkxlOpenCV.h"
-
+#include "PointDialog.h"
 #include "MFCkxlOpenCVDoc.h"
 #include "OpenCVkxlEx.h"
 
@@ -159,8 +159,6 @@ bool CMFCkxlOpenCVDoc::Restore()
 		return true;
 	}
 }
-
-
 						//--------------------备份---------------------//
 void CMFCkxlOpenCVDoc::Backup()
 {
@@ -281,11 +279,12 @@ vector<Point2D> CMFCkxlOpenCVDoc::getThreeData(int mode, vector<Point2D> vt, int
 	rs.push_back(aa[2]);
 	return rs;
 }
-ofstream ofs;
+ofstream ofs,ofs_Coords;
 CvMemStorage * g_storage = NULL;
 int clusterNum = 0;
+//真正执行命令的函数
 	bool  CMFCkxlOpenCVDoc::fit_ellipse()
-	{
+		{
 		IplImage* m_pImageGray;
 		m_pImageGray = cvCreateImage(cvGetSize(m_pImageSrc), m_pImageSrc->depth, 1);
 
@@ -317,7 +316,7 @@ int clusterNum = 0;
 		
 		cvFindContours(m_threImg, g_storage, &contours, sizeof(CvContour), 0, 2, cvPoint(0, 0));    //找轮廓
 		ofs.open("C:\\Users\\Administrator\\Videos\\"+name+".txt", ios_base::trunc | ios_base::in);
-		
+		ofs_Coords.open("C:\\Users\\Administrator\\Desktop\\" + name + "_Coords.txt", ios_base::trunc | ios_base::in);
 		int No_=0;
 		for (; contours; contours = contours->h_next){
 			int i;
@@ -335,7 +334,6 @@ int clusterNum = 0;
 			//分配内存给点集
 			PointArray = (CvPoint *)malloc(count*sizeof(CvPoint));
 			PointArray2D32f = (CvPoint2D32f*)malloc(count*sizeof(CvPoint2D32f));
-
 			//分配内存给椭圆数据
 			//box = (CvBox2D32f *)malloc(sizeof(CvBox2D32f));
 
@@ -407,8 +405,8 @@ int clusterNum = 0;
 				++iter;
 			}
 		}
-		getAllCtrlPointCoor(lsttmp, centerPts);
-
+		getAllCtrlPointCoor(lsttmp, centerPts,linePts);
+		
 		cvSaveImage("C:\\Users\\Administrator\\Videos\\" + name + ".bmp", m_pCont);
 		//cvZero(m_pImageGray);
 
@@ -421,29 +419,25 @@ int clusterNum = 0;
 		cvReleaseMemStorage(&g_storage);
 		ofs.flush();
 		ofs.close();
+		ofs_Coords.flush();
+		ofs_Coords.close();
 		return true;
 	}
-	void CMFCkxlOpenCVDoc::getAllCtrlPointCoor(vector<vector<Point2D>> lsttmp, vector<Point2D> centerPts)
+	void CMFCkxlOpenCVDoc::getAllCtrlPointCoor(vector<vector<Point2D>> lsttmp, 
+			vector<Point2D> centerPts,vector<Point2D> linePts)
 	{//这里的lsttmp是将每个关键点加入自己的聚类组 组号随机（应有7组，每组8个点） 
 	 //图像必须至少5个以上的靶标点!!!!硬性要求
 		vector<vector<Point2D>> lstthreepoint = vector<vector<Point2D>>();
 		vector<vector<Point2D>> lstthreepoint_3or4 = vector<vector<Point2D>>();
 		bool is1Geted = false, is2Geted = false, is3Geted = false, is4Geted = false, is5Geted = false, is6Geted = false, is7Geted = false;//初始化是否得到这些点
-		bool is5Seperated = false;//5是否分离
+		bool is5Seperated = false;//5是否分离<>
 		int group13=0, group2=0, group23=0, group4 = 0;//四种判别方式获得的点
 		int ptGeted = 0;
 		int rs1, rs2, rs3, rs4, rs5, rs6, rs7 = 0;
-		//vector<Point2D> set1 = vector<Point2D>();
-		//vector<Point2D> set2 = vector<Point2D>();
-		//vector<Point2D> set3 = vector<Point2D>();
-		//vector<Point2D> set4 = vector<Point2D>(); 
 		vector<Point2D> set34 = vector<Point2D>();
-		//vector<Point2D> set5 = vector<Point2D>();
-		//vector<Point2D> set6 = vector<Point2D>();
-		//vector<Point2D> set7 = vector<Point2D>();
 		CvFont font;
 		int first_or_last,x_or_y;
-		cvInitFont(&font, CV_FONT_HERSHEY_SIMPLEX, 0.5f, 0.5f, 0, 1, 8);//字体指针 字体 宽度 高度 斜度 粗细 笔画类型
+		cvInitFont(&font, CV_FONT_HERSHEY_SIMPLEX, 2.5f, 2.5f, 0, 2, 8);//字体指针 字体 宽度 高度 斜度 粗细 笔画类型
 		//①判别y轴最上三个
 		for (int b = 0; b < clusterNum; b++) {//共clusterNum个聚类
 			if (lsttmp[b].size() == 8){
@@ -472,12 +466,6 @@ int clusterNum = 0;
 			ofs << "找到组 4 (即点 6)" << endl;
 			rs6 = lstthreepoint[G_No][0].getCluster();
 			ofs << "Point6对应组别为：" << rs6<<endl;
-			//for (int j = 0; j < 8;j++){
-			//	Point2D ppt = Point2D(lsttmp[lstthreepoint[G_No][0].getCluster()][j].GetX(), lsttmp[lstthreepoint[G_No][0].getCluster()][j].GetY());
-			//	ppt.setCluster(6);
-			//	set6.push_back(ppt);
-			//	//cvPutText(m_pCont, "6", cvPoint(ppt.GetX()- 5,ppt.GetY() + 3), &font, CV_RGB(255, 0, 0));
-			//}
 			center6 = centerPts[lstthreepoint[G_No][0].getCluster()-1];
 			cvPutText(m_pCont, "6", cvPoint(center6.GetX() - 5, center6.GetY() + 3), &font, CV_RGB(255, 0, 0));//打印点1
 		}
@@ -487,7 +475,6 @@ int clusterNum = 0;
 		else{
 			ofs << "错误 ,超过1个点在组4 (即点6)" << endl;
 		}
-
 		ofs << endl;
 		lstthreepoint.clear();
 		//②第2种方式的3点--x轴前3个
@@ -516,20 +503,8 @@ int clusterNum = 0;
 			if (lstthreepoint[find34[0]][0].GetX()<lstthreepoint[find34[1]][0].GetX()){
 				rs3 = lstthreepoint[find34[0]][0].getCluster();
 				rs4 = lstthreepoint[find34[1]][0].getCluster();
-				//for (int j = 0; j < 8; j++){
-				//	Point2D pt =Point2D(lsttmp[lstthreepoint[find34[0]][0].getCluster()][j].GetX(), lsttmp[lstthreepoint[find34[0]][0].getCluster()][j].GetY());
-				//	pt.setCluster(3);
-				//	set3.push_back(pt);//-5 +3为了调整标识数字的位置	
-				//	//cvPutText(m_pCont, "3", cvPoint(pt.GetX() - 5,pt.GetY() + 3), &font, CV_RGB(255, 0, 0));
-				//}
 				center3 = centerPts[rs3-1];//标记聚类3
 				cvPutText(m_pCont, "3", cvPoint(center3.GetX() - 5, center3.GetY() + 3), &font, CV_RGB(255, 0, 0));//打印点3
-				//for (int j = 0; j < 8; j++){
-				//	Point2D pt = Point2D(lsttmp[lstthreepoint[find34[1]][0].getCluster()][j].GetX(), lsttmp[lstthreepoint[find34[1]][0].getCluster()][j].GetY());
-				//	pt.setCluster(4);
-				//	set4.push_back(pt);
-				//	//cvPutText(m_pCont, "4", cvPoint(pt.GetX() - 5,pt.GetY() + 3), &font, CV_RGB(255, 0, 0));
-				//}
 				center4 = centerPts[rs4 - 1];//标记聚类4
 				cvPutText(m_pCont, "4", cvPoint(center4.GetX() - 5, center4.GetY() + 3), &font, CV_RGB(255, 0, 0));//打印点1
 			}
@@ -704,7 +679,7 @@ int clusterNum = 0;
 			}
 			rs7 = find127[loc7].getCluster();
 			ofs << "第七组对应lst组别为：" << rs7 << endl;
-			Point2D center7 = centerPts[find127[loc7].getCluster()-1];
+			center7 = centerPts[find127[loc7].getCluster()-1];
 			cvPutText(m_pCont, "7", cvPoint(center7.GetX() - 5, center7.GetY() + 3), &font, CV_RGB(255, 0, 0));//打印点1
 
 			vector<Point2D> pt12 = vector<Point2D>();
@@ -717,13 +692,17 @@ int clusterNum = 0;
 			rs2 = pt12[1].getCluster()-1;
 			//判断点12左右
 			if (pt12[0].GetX() < pt12[1].GetX()){
-				cvPutText(m_pCont, "1", cvPoint(centerPts[rs1].GetX() - 5, centerPts[rs1].GetY() + 3), &font, CV_RGB(255, 0, 0));//打印点1
-				cvPutText(m_pCont, "2", cvPoint(centerPts[rs2].GetX() - 5, centerPts[rs2].GetY() + 3), &font, CV_RGB(255, 0, 0));//打印点2
+				center1 = Point2D(centerPts[rs1].GetX(), centerPts[rs1].GetY());
+				center2 = Point2D(centerPts[rs2].GetX(), centerPts[rs2].GetY());
+				cvPutText(m_pCont, "1", cvPoint(center1.GetX() - 5, center1.GetY() + 3), &font, CV_RGB(255, 0, 0));//打印点1
+				cvPutText(m_pCont, "2", cvPoint(center2.GetX() - 5, center2.GetY() + 3), &font, CV_RGB(255, 0, 0));//打印点2
 
 			}
 			else{
-				cvPutText(m_pCont, "2", cvPoint(centerPts[rs1].GetX() - 5, centerPts[rs1].GetY() + 3), &font, CV_RGB(255, 0, 0));//打印点1
-				cvPutText(m_pCont, "1", cvPoint(centerPts[rs2].GetX() - 5, centerPts[rs2].GetY() + 3), &font, CV_RGB(255, 0, 0));//打印点1
+				center1 = Point2D(centerPts[rs2].GetX(), centerPts[rs2].GetY());
+				center2 = Point2D(centerPts[rs1].GetX(), centerPts[rs1].GetY());
+				cvPutText(m_pCont, "2", cvPoint(center2.GetX() - 5, center2.GetY() + 3), &font, CV_RGB(255, 0, 0));//打印点1
+				cvPutText(m_pCont, "1", cvPoint(center1.GetX() - 5, center1.GetY() + 3), &font, CV_RGB(255, 0, 0));//打印点1
 
 			}
 			ofs << "除了点7，组内存在的组号有：";
@@ -746,14 +725,16 @@ int clusterNum = 0;
 						center7 = find127[i];
 						center7.setCluster(7);
 						cvPutText(m_pCont, "7", cvPoint(center7.GetX() - 5, center7.GetY() + 3), &font, CV_RGB(255, 0, 0));//打印点1
+						is7Geted = true;
 					}
 					else{
 						if (find127[i].GetX() < center4.GetX()){
-							
+							is1Geted = true;
 							center1 = find127[i];
 							cvPutText(m_pCont, "1", cvPoint(center1.GetX() - 5, center1.GetY() + 3), &font, CV_RGB(255, 0, 0));//打印点1
 						}
 						else{
+							is2Geted = true;
 							center2 = find127[i];
 							cvPutText(m_pCont, "2", cvPoint(center2.GetX() - 5, center2.GetY() + 3), &font, CV_RGB(255, 0, 0));//打印点1
 						}
@@ -798,7 +779,42 @@ int clusterNum = 0;
 				}
 			}
 		}
+		if (is1Geted){
+			ofs_Coords << center1.GetX() << "\t" << center1.GetY() << "\t" << realCoor_Center1.GetX() << "\t"
+				<< realCoor_Center1.GetY() << "\t" << realCoor_Center1.GetZ() << "\t" << endl;
+		}
+		if (is2Geted){
+			ofs_Coords << center2.GetX() << "\t" << center2.GetY() << "\t" << realCoor_Center2.GetX() << "\t"
+				<< realCoor_Center2.GetY() << "\t" << realCoor_Center2.GetZ() << "\t" << endl;
+		}
+		if (is3Geted){
+			ofs_Coords << center3.GetX() << "\t" << center3.GetY() << "\t" << realCoor_Center3.GetX() << "\t"
+				<< realCoor_Center3.GetY() << "\t" << realCoor_Center3.GetZ() << "\t" << endl;
+		}
+		if (is4Geted){
+			ofs_Coords << center4.GetX() << "\t" << center4.GetY() << "\t" << realCoor_Center4.GetX() << "\t"
+				<< realCoor_Center4.GetY() << "\t" << realCoor_Center4.GetZ() << "\t" << endl;
+		}
+		if (is5Geted){
+			ofs_Coords << center5.GetX() << "\t" << center5.GetY() << "\t" << realCoor_Center5.GetX() << "\t"
+				<< realCoor_Center5.GetY() << "\t" << realCoor_Center5.GetZ() << "\t" << endl;
+		}
+		if (is6Geted){
+			ofs_Coords << center6.GetX() << "\t" << center6.GetY() << "\t" << realCoor_Center6.GetX() << "\t"
+				<< realCoor_Center6.GetY() << "\t" << realCoor_Center6.GetZ() << "\t" << endl;
+		}
+		if (is7Geted){
+			ofs_Coords << center7.GetX() << "\t" << center7.GetY() << "\t" << realCoor_Center7.GetX() << "\t"
+				<< realCoor_Center7.GetY() << "\t" << realCoor_Center7.GetZ() << "\t" << endl;
+		}
+		CPointDialog aboutDlg;
+		aboutDlg.DoModal();
+		for (int i = 0; i < linePts.size(); i++)
+		{
+
+		}
 	}
+	//获取8点中心
 	Point2D CMFCkxlOpenCVDoc::getCenterPoint(vector<Point2D> vt){
 		double min_X=999999.0, min_Y=999999.0, max_X=-1.0, max_Y=-1.0;
 		for (int i = 0; i < vt.size(); i++)
@@ -861,46 +877,6 @@ int CMFCkxlOpenCVDoc::getKeyCtrlNum(vector<Point2D> vt, int mode, int xy){		//这
 		}
 		return 0;
 	}
-       //--------------------旋转图像------------------------//
-bool CMFCkxlOpenCVDoc::Flip(int flip_mode)
-{
-	Backup();
-	if (m_pImageSrc==NULL)
-	return false;
-	else{
-		//cvFlip(m_pImageSrc, m_pImageSrc, flip_mode);
-		cvFlip(m_pImage, m_pImage, flip_mode);
-		return true;
-	}
-}
-
-                       //---------------------转置---------------------//
-bool CMFCkxlOpenCVDoc::Rotate(int angle)
-{
-	Backup();
-	IplImage *dst = 0;
-	if (angle==90||angle==-90)
-	{
-		CvSize size;
-		size.width = (m_pImage)->height;
-		size.height = (m_pImage)->width;
-	
-		dst = cvCreateImage(size, (m_pImage)->depth, (m_pImage)->nChannels);
-		cvTranspose(m_pImage, dst);
-//		cvReleaseImage(&(*imgSrc));
-		m_pImage = dst;
-		int f = (angle == 90)? 1 : 0;
-		cvFlip(m_pImage, m_pImage, f);
-		m_pImageSrc = cvCreateImage(size, (m_pImage)->depth, (m_pImage)->nChannels);
-		cvCopy(m_pImage,m_pImageSrc);
-		return true;
-	}
-	else 
-		return false;
-}
-
-
-  
 
 						//-------------------灰度化-------------------------//
 bool CMFCkxlOpenCVDoc::Gray()

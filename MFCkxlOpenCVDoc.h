@@ -40,6 +40,13 @@ public:
 
 // Implementation
 public:
+	Point3D realCoor_Center1 = Point3D(-374.852, -593.826, 333.998);
+	Point3D realCoor_Center2 = Point3D(666.453, -687.021, 310.933);
+	Point3D realCoor_Center3 = Point3D(-752.793, -98.13, 29.955);
+	Point3D realCoor_Center4 = Point3D(291.554, -188.342, 6.225);
+	Point3D realCoor_Center5 = Point3D(-293.075, 344.062, -291.945);
+	Point3D realCoor_Center6 = Point3D(750.005, 251.705, -314.56);
+	Point3D realCoor_Center7 = Point3D(-671.105, 824.96, -597.633);
 	CString image_s;
 	bool SaveImage(CString path);
 	bool LaplaceAdd(int me);
@@ -66,7 +73,8 @@ public:
 	Point2D center1, center2, center3, center4, center5, center6, center7;
 	vector<Point2D> getThreeData(int mode, vector<Point2D> vt, int xy);
 	int getKeyCtrlNum(vector<Point2D> vt, int mode, int xy);
-	void getAllCtrlPointCoor(vector<vector<Point2D>> vt,vector<Point2D> centerPts);
+	void getAllCtrlPointCoor(vector<vector<Point2D>> vt, vector<Point2D> centerPts, vector<Point2D> linePts);
+	void setAllPtsID();
 	int LastOccurence(char *szStr, char *szSub);
 //	CMFCkxlOpenCVView myview;
 	IplImage* m_pImage;

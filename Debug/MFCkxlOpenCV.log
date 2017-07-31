@@ -1,97 +1,50 @@
-﻿生成启动时间为 2017/7/11 3:41:32。
-     1>项目“G:\GitHubWorkSpace\BrightPoint\MFCkxlOpenCV.vcxproj”在节点 2 上(Rebuild 个目标)。
+﻿生成启动时间为 2017/7/19 23:47:12。
+     1>项目“G:\GitHubWorkSpace\BrightPoint\MFCkxlOpenCV.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
-         E:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"D:\Program Files\OpenCV\cxcore\include" /I"D:\Program Files\OpenCV\cv\include" /I"D:\Program Files\OpenCV\otherlibs\_graphics\include" /I"D:\Program Files\OpenCV\otherlibs\highgui" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0600 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp".\Debug\MFCkxlOpenCV.pch" /Fo".\Debug\\" /Fd".\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt StdAfx.cpp
-         StdAfx.cpp
-     1>e:\program files\microsoft visual studio 12.0\vc\atlmfc\include\afx.h(38): warning C4996: 'MBCS_Support_Deprecated_In_MFC': MBCS support in MFC is deprecated and may be removed in a future version of MFC.
-                 e:\program files\microsoft visual studio 12.0\vc\atlmfc\include\afx.h(33) : 参见“MBCS_Support_Deprecated_In_MFC”的声明
-         _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-         E:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"D:\Program Files\OpenCV\cxcore\include" /I"D:\Program Files\OpenCV\cv\include" /I"D:\Program Files\OpenCV\otherlibs\_graphics\include" /I"D:\Program Files\OpenCV\otherlibs\highgui" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0600 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp".\Debug\MFCkxlOpenCV.pch" /Fo".\Debug\\" /Fd".\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CvvImage.cpp Dlg.cpp MainFrm.cpp MFCkxlOpenCV.cpp MFCkxlOpenCVDoc.cpp MFCkxlOpenCVView.cpp OpenCVkxlEx.cpp
-         OpenCVkxlEx.cpp
-     1>e:\program files\opencv2410\build\include\opencv2\flann\logger.h(66): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 e:\program files\microsoft visual studio 12.0\vc\include\stdio.h(211) : 参见“fopen”的声明
-         MFCkxlOpenCVView.cpp
-     1>e:\program files\opencv2410\build\include\opencv2\flann\logger.h(66): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 e:\program files\microsoft visual studio 12.0\vc\include\stdio.h(211) : 参见“fopen”的声明
-     1>g:\githubworkspace\brightpoint\dbscan.h(72): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(88): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(93): warning C4018: “>=”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(94): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(96): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(114): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(119): warning C4018: “>=”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(128): warning C4018: “<”: 有符号/无符号不匹配
+         E:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"D:\Program Files\OpenCV\cxcore\include" /I"D:\Program Files\OpenCV\cv\include" /I"D:\Program Files\OpenCV\otherlibs\_graphics\include" /I"D:\Program Files\OpenCV\otherlibs\highgui" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0600 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp".\Debug\MFCkxlOpenCV.pch" /Fo".\Debug\\" /Fd".\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt MFCkxlOpenCVDoc.cpp
          MFCkxlOpenCVDoc.cpp
      1>e:\program files\opencv2410\build\include\opencv2\flann\logger.h(66): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  e:\program files\microsoft visual studio 12.0\vc\include\stdio.h(211) : 参见“fopen”的声明
-     1>g:\githubworkspace\brightpoint\dbscan.h(72): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(88): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(93): warning C4018: “>=”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(94): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(96): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(114): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(119): warning C4018: “>=”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(128): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(364): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(384): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(325): warning C4101: “center”: 未引用的局部变量
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(326): warning C4101: “size”: 未引用的局部变量
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(462): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(482): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(504): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(526): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(534): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(546): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(555): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(590): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(613): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(655): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(669): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>g:\githubworkspace\brightpoint\dbscan.h(107): warning C4018: “<”: 有符号/无符号不匹配
+     1>g:\githubworkspace\brightpoint\dbscan.h(123): warning C4018: “<”: 有符号/无符号不匹配
+     1>g:\githubworkspace\brightpoint\dbscan.h(128): warning C4018: “>=”: 有符号/无符号不匹配
+     1>g:\githubworkspace\brightpoint\dbscan.h(129): warning C4018: “<”: 有符号/无符号不匹配
+     1>g:\githubworkspace\brightpoint\dbscan.h(131): warning C4018: “<”: 有符号/无符号不匹配
+     1>g:\githubworkspace\brightpoint\dbscan.h(149): warning C4018: “<”: 有符号/无符号不匹配
+     1>g:\githubworkspace\brightpoint\dbscan.h(154): warning C4018: “>=”: 有符号/无符号不匹配
+     1>g:\githubworkspace\brightpoint\dbscan.h(163): warning C4018: “<”: 有符号/无符号不匹配
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(362): warning C4018: “<”: 有符号/无符号不匹配
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(382): warning C4018: “<”: 有符号/无符号不匹配
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(324): warning C4101: “center”: 未引用的局部变量
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(325): warning C4101: “size”: 未引用的局部变量
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(456): warning C4018: “<”: 有符号/无符号不匹配
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(470): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(491): warning C4018: “<”: 有符号/无符号不匹配
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(507): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(509): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(521): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(530): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(565): warning C4018: “<”: 有符号/无符号不匹配
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(588): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(630): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(644): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(661): warning C4018: “<”: 有符号/无符号不匹配
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(683): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
      1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(686): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(708): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(711): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(720): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(721): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(725): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(726): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(730): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(743): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(748): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(754): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(758): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(791): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(796): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(804): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(822): warning C4018: “<”: 有符号/无符号不匹配
-         MFCkxlOpenCV.cpp
-     1>e:\program files\opencv2410\build\include\opencv2\flann\logger.h(66): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 e:\program files\microsoft visual studio 12.0\vc\include\stdio.h(211) : 参见“fopen”的声明
-     1>g:\githubworkspace\brightpoint\dbscan.h(72): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(88): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(93): warning C4018: “>=”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(94): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(96): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(114): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(119): warning C4018: “>=”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(128): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\mfckxlopencv.cpp(62): warning C4996: 'CWinApp::Enable3dControlsStatic': CWinApp::Enable3dControlsStatic is no longer needed. You should remove this call.
-                 e:\program files\microsoft visual studio 12.0\vc\atlmfc\include\afxwin.h(5181) : 参见“CWinApp::Enable3dControlsStatic”的声明
-         MainFrm.cpp
-         Dlg.cpp
-     1>e:\program files\opencv2410\build\include\opencv2\flann\logger.h(66): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 e:\program files\microsoft visual studio 12.0\vc\include\stdio.h(211) : 参见“fopen”的声明
-     1>g:\githubworkspace\brightpoint\dbscan.h(72): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(88): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(93): warning C4018: “>=”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(94): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(96): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(114): warning C4018: “<”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(119): warning C4018: “>=”: 有符号/无符号不匹配
-     1>g:\githubworkspace\brightpoint\dbscan.h(128): warning C4018: “<”: 有符号/无符号不匹配
-         CvvImage.cpp
-         正在生成代码...
-       ResourceCompile:
-         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _DEBUG /D _VC80_UPGRADE=0x0600 /l"0x0804" /nologo /fo".\Debug\MFCkxlOpenCV.res" MFCkxlOpenCV.rc 
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(697): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(698): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(704): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(705): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(709): warning C4018: “<”: 有符号/无符号不匹配
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(722): warning C4018: “<”: 有符号/无符号不匹配
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(727): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(734): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(739): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(772): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(777): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(812): warning C4018: “<”: 有符号/无符号不匹配
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(820): warning C4018: “<”: 有符号/无符号不匹配
+     1>g:\githubworkspace\brightpoint\mfckxlopencvdoc.cpp(838): warning C4018: “<”: 有符号/无符号不匹配
        Link:
          E:\Program Files\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Debug\MFCkxlOpenCV.exe" /INCREMENTAL /NOLOGO opencv_calib3d2410d.lib opencv_contrib2410d.lib opencv_core2410d.lib opencv_features2d2410d.lib opencv_flann2410d.lib opencv_gpu2410d.lib opencv_highgui2410d.lib opencv_legacy2410d.lib opencv_ml2410d.lib opencv_nonfree2410d.lib opencv_objdetect2410d.lib opencv_ocl2410d.lib opencv_photo2410d.lib opencv_stitching2410d.lib opencv_superres2410d.lib opencv_ts2410d.lib opencv_video2410d.lib opencv_imgproc2410d.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"E:\Program Files\Microsoft Visual Studio 12.0\VC\Include\Manifest\dpiaware.manifest" /DEBUG /PDB:".\Debug\MFCkxlOpenCV.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Debug\MFCkxlOpenCV.lib" /MACHINE:X86 /SAFESEH .\Debug\MFCkxlOpenCV.res
          .\Debug\CvvImage.obj
@@ -101,11 +54,11 @@
          .\Debug\MFCkxlOpenCVDoc.obj
          .\Debug\MFCkxlOpenCVView.obj
          .\Debug\OpenCVkxlEx.obj
+         .\Debug\PointDialog.obj
          .\Debug\StdAfx.obj
-     1>CvvImage.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/SAFESEH”规范)
          MFCkxlOpenCV.vcxproj -> G:\GitHubWorkSpace\BrightPoint\.\Debug\MFCkxlOpenCV.exe
-     1>已完成生成项目“G:\GitHubWorkSpace\BrightPoint\MFCkxlOpenCV.vcxproj”(Rebuild 个目标)的操作。
+     1>已完成生成项目“G:\GitHubWorkSpace\BrightPoint\MFCkxlOpenCV.vcxproj”(Build 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:10.25
+已用时间 00:00:02.03

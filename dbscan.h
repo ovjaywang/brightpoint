@@ -60,6 +60,41 @@ public:
 		return this->isClassed;
 	}
 };
+class Point3D{
+private:
+	double x;
+	double y;
+	double z;
+public:
+	Point3D() {
+		this->x = 0;
+		this->y = 0;
+		this->z = 0;
+	}
+	Point3D(double x, double y, double z) {
+		this->x = x;
+		this->y = y;
+		this->z = z;
+	}
+	double GetX() {
+		return this->x;
+	}
+	double GetY() {
+		return this->y;
+	}
+	double GetZ() {
+		return this->z;
+	}
+	void setX(double xx){
+		this->x = xx;
+	}
+	void setY(double yy){
+		this->y = yy;
+	}
+	void setZ(double zz){
+		this->z = zz;
+	}
+};
 double static getDisP(Point2D &p1, Point2D &p2) {
 	double dx = p1.GetX() - p2.GetX();
 	double dy = p1.GetY() - p2.GetY();

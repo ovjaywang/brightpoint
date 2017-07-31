@@ -24,10 +24,6 @@ BEGIN_MESSAGE_MAP(CMFCkxlOpenCVView, CView)
 	//{{AFX_MSG_MAP(CMFCkxlOpenCVView)
 	ON_COMMAND(ID_IMAGE_LARGER, OnImageLarger)
 	ON_COMMAND(ID_IMAGE_SMALLER, OnImageSmaller)
-	ON_COMMAND(ID_IMAGE_FLIPH, OnImageFliph)
-	ON_COMMAND(ID_IMAGE_FLIPV, OnImageFlipv)
-	ON_COMMAND(ID_MENU_ROTATE_C, OnMenuRotateC)
-	ON_COMMAND(ID_MENU_ROTATE_R, OnMenuRotateR)
 	ON_COMMAND(ID_IMAGE_LSER, OnImageLser)
 	ON_COMMAND(ID_FILE_UNDO, OnFileUndo)
 	ON_COMMAND(ID_FILE_RELOAD, OnFileReload)
@@ -182,58 +178,6 @@ void CMFCkxlOpenCVView::OnImageSmaller()
 		Invalidate();
 	}
 	else MessageBox("没有图片，请先载入图片!") ;
-}
-
-						 //-------------------------正向旋转---------------------//				
-void CMFCkxlOpenCVView::OnImageFliph() 
-{
-	pImage = GetDocument()->m_pImage;
-	if(pImage != NULL)
-	{
-		GetDocument()->Flip(1);
-	//	m_bIsChange = TRUE;
-		Invalidate();
-	}
-	else MessageBox("没有图片，请先载入图片!") ;
-}
-
-						 //-------------------------反向旋转---------------------//
-void CMFCkxlOpenCVView::OnImageFlipv() 
-{
-	// TODO: Add your command handler code here
-	pImage=GetDocument()->m_pImage;
-	if (pImage!=NULL)
-	{
-		GetDocument()->Flip(0);
-		Invalidate();
-	}
-	else MessageBox("没有图片，请先载入图片!") ;
-}
-
-						 //-------------------------左右转置---------------------//
-void CMFCkxlOpenCVView::OnMenuRotateC() 
-{
-	// TODO: Add your command handler code here
-	pImage=GetDocument()->m_pImage;
-	if (pImage!=NULL)
-	{
-		GetDocument()->Rotate(90);
-		Invalidate();
-	}
-	else MessageBox("没有图片，请先载入图片!");	
-}
-
-						 //-------------------------上下转置---------------------//
-void CMFCkxlOpenCVView::OnMenuRotateR() 
-{
-	// TODO: Add your command handler code here
-	pImage=GetDocument()->m_pImage;
-	if (pImage!=NULL)
-	{
-		GetDocument()->Rotate(-90);
-		Invalidate();
-	}
-	else MessageBox("没有图片，请先载入图片!");	
 }
 
 						 //-------------------------自定义放缩---------------------//
